@@ -94,12 +94,12 @@ export const mockPodolskAddresses = [
   'г Подольск, бульвар 65-летия Победы',
 ];
 
-export async function getMockSuggestions(query: string): Promise<AddressSuggestion[]> {
+export function getMockSuggestions(query: string): Promise<AddressSuggestion[]> {
   const filtered = mockPodolskAddresses
     .filter(addr => addr.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 5);
 
-  return filtered.map((addr, idx) => ({
+  const result = filtered.map((addr) => ({
     value: addr,
     unrestricted_value: addr,
     data: {
@@ -109,4 +109,6 @@ export async function getMockSuggestions(query: string): Promise<AddressSuggesti
       geo_lon: '37.5545',
     }
   }));
+
+  return Promise.resolve(result);
 }
