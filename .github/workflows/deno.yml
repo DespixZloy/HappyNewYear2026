@@ -23,7 +23,7 @@ jobs:
           deno-version: v1.x
 
       - name: Run linter
-        run: deno lint --ignore=**/*.timestamp-*.mjs
+        run: deno lint src/ --ignore=**/*.timestamp-*.mjs
 
       - name: Run tests
-        run: deno test -A --ignore=**/*.timestamp-*.mjs
+        run: deno test -A
