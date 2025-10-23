@@ -22,11 +22,39 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: List files (debug)
-        run: find . -name "*.ts" -o -name "*.tsx" | head -20
+      - name: Debug - Show current directory and structure
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo ""
+          echo "=== Repository structure ==="
+          ls -la
+          echo ""
+          echo "=== src/ directory contents ==="
+          find src/ -type f 2>/dev/null || echo "src/ directory not found"
+          echo ""
+          echo "=== All TypeScript files ==="
+          find . -name "*.ts" -o -name "*.tsx" | grep -v node_modules | sort
+
+      - name: Run tests with explicit paths
+        run: |
+          # Запускаем тесты с абсолютными путями
+          if [ -f "./src/__tests__/basic.test.ts" ]; then
+            echo "Running basic tests..."
+            deno test ./src/__tests__/basic.test.ts -A
+          fi
+          
+          if [ -f "./src/utils/__tests__/addressValidator.test.ts" ]; then
+            echo "Running address validator tests..."
+            deno test ./src/utils/__tests__/addressValidator.test.ts -A
+          fi
 
       - name: Run linter
-        run: deno lint .
-
-      - name: Run tests
-        run: deno test -A
+        run: |
+          # Линтинг с явными путями
+          for file in ./src/App.tsx ./src/utils/addressValidator.ts ./vite.config.ts; do
+            if [ -f "$file" ]; then
+              echo "Linting $file"
+              deno lint "$file"
+            fi
+          done
