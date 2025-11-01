@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "require-await": "error",
+    "no-window": "error"
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/dist", 
+    "**/build",
+    "**/*.timestamp-*.mjs",
+    "**/*.cache"
+  ]
+}
