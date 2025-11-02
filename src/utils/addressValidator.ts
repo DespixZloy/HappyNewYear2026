@@ -99,7 +99,7 @@ export async function getMockSuggestions(query: string): Promise<AddressSuggesti
     .filter(addr => addr.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 5);
 
-  return filtered.map((addr, idx) => ({
+  return filtered.map((addr) => ({
     value: addr,
     unrestricted_value: addr,
     data: {
