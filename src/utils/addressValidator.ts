@@ -17,7 +17,7 @@ const PODOLSK_BOUNDS = {
   to: { lat: 55.4800, lon: 37.6500 }
 };
 
-export function searchAddresses(query: string): Promise<AddressSuggestion[]> {
+export async function searchAddresses(query: string): Promise<AddressSuggestion[]> {
   if (query.length < 3) return [];
 
   try {
@@ -94,7 +94,7 @@ export const mockPodolskAddresses = [
   'г Подольск, бульвар 65-летия Победы',
 ];
 
-export async function getMockSuggestions(query: string): Promise<AddressSuggestion[]> {
+export function getMockSuggestions(query: string): Promise<AddressSuggestion[]> {
   const filtered = mockPodolskAddresses
     .filter(addr => addr.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 5);
