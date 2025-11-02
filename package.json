@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://DespixZloy.github.io/HappyNewYear2026",
+  "homepage": "https://DespixZloy.github.io/santa-app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
