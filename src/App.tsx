@@ -111,7 +111,7 @@ function App() {
               }}
             >
               {/* <div className="text-8xl md:text-9xl mb-4 drop-shadow-2xl w-100 h-100"><img src='/image/santa.png'></img>🎅❄️</div> */}
-              <div className="flex justify-center w-80 h-80"><img src='/image/santa.png'></img><img src='/image/snegurochka.png'></img></div>
+              <div className="flex justify-center w-80 h-80"><img src='./image/santa.png'></img><img src='./image/snegurochka.png'></img></div>
               {/* <div className="w-40 h-40"><img src='/image/snegurochka.png'></img></div> */}
             </div>
 
