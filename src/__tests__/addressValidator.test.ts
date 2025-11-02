@@ -1,4 +1,4 @@
-import { validatePodolskAddress, formatAddressForDisplay } from '../addressValidator.ts';
+import { validatePodolskAddress, formatAddressForDisplay } from './utils/addressValidator.ts';
 
 Deno.test("validatePodolskAddress - should return true for valid Podolsk address", () => {
   const validAddress = {
