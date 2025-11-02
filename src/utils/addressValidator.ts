@@ -17,7 +17,7 @@ const PODOLSK_BOUNDS = {
   to: { lat: 55.4800, lon: 37.6500 }
 };
 
-export async function searchAddresses(query: string): Promise<AddressSuggestion[]> {
+export function searchAddresses(query: string): Promise<AddressSuggestion[]> {
   if (query.length < 3) return [];
 
   try {
